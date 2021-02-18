@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 45%;
+  cursor: pointer;
+  align: center;
+}
+
+h1{
+text-align:center;
+}
+
+
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: gray;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h1>Click the button then click Allow to get your coordinates.</h1>
+
+
+
+
+<input type="button" class="button" value="Click and Allow" onclick="getLocation()">
+
+
+<h2 id="demo"></h2>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+
+function showPosition(position) {
+  console.log(position);
+  x.innerHTML = "Latitude : " + position.coords.latitude + 
+  "<br>Longitude : " + position.coords.longitude;
+}
+</script>
+
+<footer>
+  <p>Author: Kaisar Sarwar<br>
+  <a href="mailto:kaisarvam3@gmail.com">kaisarvam3@gmail.com</a></p>
+</footer>
+
+
+</body>
+</html>
